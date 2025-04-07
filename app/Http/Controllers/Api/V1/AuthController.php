@@ -9,7 +9,6 @@ use App\Services\AuthService\AuthServiceInterface;
 use Illuminate\Http\{JsonResponse, Request};
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use Symfony\Component\HttpFoundation\Response;
 use App\Models\Account;
 use App\Exceptions\ApiAuthenticationException;
 use App\Exceptions\OperationFailedException;
