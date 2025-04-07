@@ -7,7 +7,7 @@ A RESTful API simulating basic Automated Teller Machine (ATM) operations, built 
 *   **Dual Authentication:**
     *   **User Login:** Standard email/password authentication for regular API consumers.
     *   **ATM Login:** Card number/PIN authentication simulating physical ATM access.
-*   **JWT Authentication:** Secure API access using `tymon/jwt-auth` with distinct token types (`user_session`, `atm_session`).
+*   **JWT Authentication:** Secure API access using `tymon/jwt-auth` with distinct token types (`user_session`, `atm_session`). Includes login, logout, and retrieving authenticated user info.
 *   **Account Management:**
     *   View account balance and details.
     *   View transaction history with custom pagination.
@@ -82,7 +82,7 @@ A RESTful API simulating basic Automated Teller Machine (ATM) operations, built 
     *   Configure JWT TTL (optional, defaults in `config/jwt.php`):
         ```dotenv
         JWT_TTL=60 # Token lifetime in minutes
-        JWT_REFRESH_TTL=20160 # Refresh lifetime in minutes (e.g., 2 weeks)
+        # JWT_REFRESH_TTL=20160 # Refresh lifetime - Not currently used
         ```
 
 5.  **Run Database Migrations:**
@@ -122,7 +122,7 @@ All endpoints are prefixed with `/api/v1`.
 
 *   `GET /accounts/me` (Get account details associated with the token)
 *   `GET /accounts/me/transactions` (Get transaction history - supports `index`, `size`, `from`, `type`, `start_date`, `end_date` query params)
-*   `POST /withdrawals` (Initiate withdrawal - requires `amount` in body - Renamed from `/accounts/me/withdrawals` in the provided routes)
+*   `POST /withdrawals` (Initiate withdrawal - requires `amount` in body)
 
 **Admin Actions (`/admin` - Require valid JWT & Admin Role)**
 
